@@ -1,22 +1,47 @@
 @import "tailwindcss";
 
-:root {
+/* :root {
   --background: #ffffff;
   --foreground: #171717;
-}
+} */
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-primary: #F97316;
+  --color-brand-green: #004632;
+  --color-brand-light-green: #bdd0a0;
+  --color-brand-cream: #fef8dd;
+  --color-brand-orange: #ff6a00;
+  --color-brand-red: #c7361c;
+  --color-brand-blue: #314b98;
+  --color-brand-pink: #f9cee1;
+  --color-brand-yellow: #ffd64d;
+}
+
+@layer components {
+  .scrollbar::-webkit-scrollbar {
+    @apply w-0;
+  }
+  .scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  .scrollbar.scrollLight::-webkit-scrollbar-thumb {
+    @apply bg-[var(--color-accent)];
+  }
+  .scrollbar.scrollDark::-webkit-scrollbar-thumb {
+    @apply bg-[var(--color-background)];
+  }
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  /* :root {
     --background: #0a0a0a;
     --foreground: #ededed;
-  }
+  } */
 }
 
 body {
