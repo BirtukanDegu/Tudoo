@@ -6,8 +6,8 @@ export interface TODO {
   };
 
 export interface TodoProps {
-    removeElement: Function;
-    handleCheck: Function;
+    removeElement: (id: number) => void;
+    handleCheck: (id: number) => void;
     id: number;
     children: string;
     checked: boolean;
