@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { marcellus } from "@/fonts/font";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -70,7 +71,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className="antialiased scrollbar"
+        className={`${marcellus.className} antialiased scrollbar`}
       >
         {children}
       </body>
