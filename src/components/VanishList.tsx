@@ -1,9 +1,10 @@
 'use client'
 
 import React, { useState } from "react";
+import { TODO } from "@/types";
 import Header from "@/components/Header";
 import Todos from "@/components/Todos";
-import { TODO } from "@/types";
+import Form from "@/components/Form";
 import { DEFAULT_TASKS } from "@/data";
 
 const VanishList = () => {
@@ -33,6 +34,7 @@ const VanishList = () => {
           handleCheck={handleCheck}
         />
       </div>
+      <Form setTodos={setTodos} />
     </section>
   );
 };
