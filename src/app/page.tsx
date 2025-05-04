@@ -1,25 +1,21 @@
 import React from "react";
-import Image from "next/image";
+import VanishList from "@/components/VanishList";
+import Header from "@/components/Header";
 
 const Home = () => {
 
   return (
     <section
-      className="flex items-center justify-center"
+      className="min-h-screen overflow-y-hidden h-full flex items-center md:flex-row flex-col"
     >
-        <div className="flex gap-4 items-center">
-          <Image
-            src="/images/Tudoo.svg"
-            width={60}
-            height={60}
-            className="rounded-lg"
-            alt="logo"
-          />
-          <div>
-            <p className="font-semibold">TudOOOOOO</p>
-            <p className="text-orange-500 text-sm">By Birtukan</p>
-          </div>
-        </div>
+      <div className="hidden md:flex fixed inset-y-0 max-w-lg md:min-h-screen w-full h-full p-4 md:p-12 mr-12">
+        <Header />
+      </div>
+      
+      <div className="relative min-h-screen h-full w-full flex justify-center items-center p-4 md:p-0">
+        <div className="absolute inset-0 -z-10 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <VanishList />
+      </div>
     </section>
   );
 };
