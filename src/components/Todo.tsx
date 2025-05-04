@@ -66,7 +66,7 @@ const Todo = ({
           type="checkbox"
           checked={checked}
           onChange={() => handleCheck(id)}
-          className="size-4 accent-primary"
+          className="size-4 accent-primary cursor-pointer"
         />
   
         <p

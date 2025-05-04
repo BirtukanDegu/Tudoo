@@ -35,6 +35,86 @@
   .scrollbar.scrollDark::-webkit-scrollbar-thumb {
     @apply bg-[var(--color-background)];
   }
+
+  .loader {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .wrapper {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .catContainer {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .catbody {
+    width: 80px;
+  }
+  .tail {
+    position: absolute;
+    width: 17px;
+    top: 50%;
+    animation: tail 0.5s ease-in infinite alternate-reverse;
+    transform-origin: top;
+  }
+  @keyframes tail {
+    0% {
+      transform: rotateZ(60deg);
+    }
+    50% {
+      transform: rotateZ(0deg);
+    }
+    100% {
+      transform: rotateZ(-20deg);
+    }
+  }
+  .wall {
+    width: 300px;
+  }
+  .text {
+    display: flex;
+    flex-direction: column;
+    width: 50px;
+    position: absolute;
+    margin: 0px 0px 100px 120px;
+  }
+  .zzz {
+    color: black;
+    font-weight: 700;
+    font-size: 15px;
+    animation: zzz 2s linear infinite;
+  }
+  .bigzzz {
+    color: black;
+    font-weight: 700;
+    font-size: 25px;
+    margin-left: 10px;
+    animation: zzz 2.3s linear infinite;
+  }
+  @keyframes zzz {
+    0% {
+      color: transparent;
+    }
+    50% {
+      color: black;
+    }
+    100% {
+      color: transparent;
+    }
+  }
+  
 }
 
 @media (prefers-color-scheme: dark) {
