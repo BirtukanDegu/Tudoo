@@ -1,3 +1,4 @@
+import { TodoProps } from "@/types";
 import { useAnimate, usePresence, motion } from "framer-motion";
 import { useEffect } from "react";
 import { FiClock, FiTrash2 } from "react-icons/fi";
@@ -10,14 +11,7 @@ const Todo = ({
     children,
     checked,
     time,
-  }: {
-    removeElement: Function;
-    handleCheck: Function;
-    id: number;
-    children: string;
-    checked: boolean;
-    time: string;
-  }) => {
+  }: TodoProps) => {
     const [isPresent, safeToRemove] = usePresence();
     const [scope, animate] = useAnimate();
   

@@ -1,4 +1,4 @@
-import { TODO } from '@/types';
+import { TodosProps } from '@/types';
 import { AnimatePresence } from 'framer-motion';
 import React from 'react'
 import Todo from './Todo';
@@ -7,11 +7,7 @@ const Todos = ({
     todos,
     handleCheck,
     removeElement,
-  }: {
-    todos: TODO[];
-    handleCheck: Function;
-    removeElement: Function;
-  }) => {
+  }: TodosProps) => {
     return (
         <div className="w-full space-y-3">
         <AnimatePresence>

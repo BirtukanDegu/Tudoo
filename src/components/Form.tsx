@@ -85,7 +85,7 @@ const Form = ({ setTodos }: { setTodos: Dispatch<SetStateAction<TODO[]>> }) => {
             </AnimatePresence>
             <button
                 onClick={() => setVisible((pv) => !pv)}
-                className="flex items-center justify-center gap-2 w-full place-content-center rounded-full border border-primary/70 bg-primary py-3 text-lg text-white transition-colors hover:bg-primary/90 active:bg-primary cursor-pointer"
+                className="flex items-center justify-center gap-2 w-full place-content-center rounded-full border border-primary/70 bg-primary py-1 text-lg text-white transition-colors hover:bg-primary/90 active:bg-primary cursor-pointer"
             >
                 {visible ? "Close" : "Add Task"}<FiPlus
                 className={`transition-transform ${visible ? "rotate-45" : "rotate-0"}`}
