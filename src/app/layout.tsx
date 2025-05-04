@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     },
   },
   title:
-    "Todo app: Organize your tasks with ease | Task Organizer",
+    "Tudooo: Organize your tasks with ease | Task Organizer",
   description:
     "Organize your tasks with ease using our simple and intuitive Todo app. Stay on top of your to-do list and boost your productivity.",
   keywords: [
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   robots: "index, follow",
   openGraph: {
     title:
-      "Todo App: Organize your tasks with ease | Task Organizer",
+      "Tudooo: Organize your tasks with ease | Task Organizer",
     description:
       "Organize your tasks with ease using our simple and intuitive Todo app. Stay on top of your to-do list and boost your productivity.",
     url: process.env.NEXT_PUBLIC_URL,

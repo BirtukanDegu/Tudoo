@@ -1,14 +1,30 @@
 'use client'
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TODO } from "@/types";
 import Header from "@/components/Header";
 import Todos from "@/components/Todos";
 import Form from "@/components/Form";
-import { DEFAULT_TASKS } from "@/data";
+// import { DEFAULT_TASKS } from "@/data";
 
 const VanishList = () => {
-  const [todos, setTodos] = useState<TODO[]>(DEFAULT_TASKS);
+  const [todos, setTodos] = useState<TODO[]>([]);
+  const [hasChecked, setHasChecked] = useState(false);
+
+
+  useEffect (() => {
+    if (hasChecked) {
+      localStorage.setItem("tasks", JSON.stringify(todos));
+    }
+  }, [todos]);
+
+  useEffect(() => {
+    const tasks = localStorage.getItem("tasks");
+
+    setTodos(tasks ? JSON.parse(tasks) : [])
+
+    setHasChecked(true);
+  },[])
 
   const handleCheck = (id: number) => {
     setTodos((pv) =>
