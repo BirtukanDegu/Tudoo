@@ -1,37 +1,113 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tudooo
+
+Tudooo is a simple, intuitive, and responsive Todo List application built with Next.js, Tailwind CSS, and Framer Motion. It helps you stay organized and productive by allowing you to manage your tasks dynamically.
+
+## Features
+
+- **Task Management:** Add, check off, and remove tasks using an interactive UI.
+- **Smooth Animations:** Enjoy smooth animations powered by Framer Motion (see [src/components/Todo.tsx](src/components/Todo.tsx)).
+- **Persistent Storage:** Tasks are saved in the browser's local storage to maintain your list between sessions (see [src/components/VanishList.tsx](src/components/VanishList.tsx)).
+- **Responsive Design:** The application adapts to different screen sizes for optimal usability.
+
+
+## File Structure
+
+```
+tudooo/
+├── src/
+│   ├── app/
+│   │   └── page.tsx            # Main page component
+│   ├── components/
+│   │   ├── Header.tsx          # Header component
+│   │   ├── Todo.tsx            # Todo item component
+│   │   ├── Todos.tsx           # List of todos component
+│   │   └── VanishList.tsx      # Component handling vanished items
+│   └── types/                  # Type definitions
+│       └── index.ts
+├── .env                        # Environment variables (if applicable)
+├── package.json
+└── README.md
+```
+
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
+- [Node.js](https://nodejs.org/) v14 or higher
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+
+### Installation
+
+1. **Clone the repository:**
+
+    ```sh
+    git clone https://github.com/your-username/tudooo.git
+    cd tudooo
+    ```
+2. Navigate to the project directory:
+
+   ```sh
+   cd tudooo
+   ```
+
+3. **Install dependencies:**
+
+    ```sh
+    npm install
+    ```
+    or
+
+    ```sh
+    yarn install
+    ```
+
+### Running the Development Server
+
+Start the Next.js development server:
+
+```sh
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+or
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+yarn dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the app.
 
-## Learn More
+### Building for Production
 
-To learn more about Next.js, take a look at the following resources:
+Build the application using:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```sh
+npm run build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+or
 
-## Deploy on Vercel
+```sh
+yarn build
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Then start the production server with:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-"# Tudoo" 
+```sh
+npm run start
+```
+
+or 
+
+```sh
+yarn start
+```
+
+## Contributing
+
+Contributions are welcome! Feel free to open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
