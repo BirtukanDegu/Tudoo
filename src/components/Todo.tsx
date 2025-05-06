@@ -2,6 +2,7 @@ import { TodoProps } from "@/types";
 import { useAnimate, usePresence, motion } from "framer-motion";
 import { useEffect } from "react";
 import { FiClock, FiTrash2 } from "react-icons/fi";
+import useSound from "use-sound";
 
 
 const Todo = ({
@@ -14,6 +15,8 @@ const Todo = ({
   }: TodoProps) => {
     const [isPresent, safeToRemove] = usePresence();
     const [scope, animate] = useAnimate();
+    const [playCheck] = useSound("/sounds/click.mp3");
+    const [playRemove] = useSound("/sounds/delete.mp3");
   
     useEffect(() => {
       if (!isPresent) {
@@ -65,7 +68,10 @@ const Todo = ({
         <input
           type="checkbox"
           checked={checked}
-          onChange={() => handleCheck(id)}
+          onChange={() => {
+            playCheck()
+            handleCheck(id)
+          }}
           className="size-4 accent-primary cursor-pointer"
         />
   
@@ -80,7 +86,10 @@ const Todo = ({
             <span>{time}</span>
           </div>
           <button
-            onClick={() => removeElement(id)}
+            onClick={() => {
+              playRemove()
+              removeElement(id)
+            }}
             className="rounded bg-red-300/20 px-1.5 py-1 text-xs text-red-600 transition-colors hover:bg-red-600 hover:text-red-200 cursor-pointer"
           >
             <FiTrash2 />

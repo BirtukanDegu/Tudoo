@@ -2,9 +2,11 @@ import { TODO } from '@/types';
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { Dispatch, SetStateAction, useState } from 'react'
 import { FiPlus } from 'react-icons/fi';
+import useSound from 'use-sound';
 
 const Form = ({ setTodos }: { setTodos: Dispatch<SetStateAction<TODO[]>> }) => {
     const [visible, setVisible] = useState(false);
+    const [play] = useSound("/sounds/trigger.mp3")
     
     const [time, setTime] = useState("15");
     const [text, setText] = useState("");
@@ -14,6 +16,8 @@ const Form = ({ setTodos }: { setTodos: Dispatch<SetStateAction<TODO[]>> }) => {
         if (!text.length) {
         return;
         }
+
+        play();
     
         setTodos((pv) => [
         {
@@ -46,7 +50,10 @@ const Form = ({ setTodos }: { setTodos: Dispatch<SetStateAction<TODO[]>> }) => {
                 >
                     <textarea
                         value={text}
-                        onChange={(e) => setText(e.target.value)}
+                        onChange={(e) => {
+                            play()
+                            setText(e.target.value)
+                        }}
                         placeholder="What do you need to do?"
                         className="h-24 w-full resize-none rounded bg-black/5 p-3 text-sm text-slate-950 placeholder-slate-500 caret-primary focus:outline-0"
                     />
@@ -64,6 +71,7 @@ const Form = ({ setTodos }: { setTodos: Dispatch<SetStateAction<TODO[]>> }) => {
                                             /^-?\d*\.?\d*$/.test(inputValue) ||
                                             inputValue === ""
                                           ){
+                                            play()
                                             setTime(inputValue)
                                           }
                                     }
@@ -95,7 +103,10 @@ const Form = ({ setTodos }: { setTodos: Dispatch<SetStateAction<TODO[]>> }) => {
                 )}
             </AnimatePresence>
             <button
-                onClick={() => setVisible((pv) => !pv)}
+                onClick={() => {
+                    play()
+                    setVisible((pv) => !pv)
+                }}
                 className="flex items-center justify-center gap-2 w-full place-content-center rounded-full border border-primary/70 bg-primary py-1 text-lg text-white transition-colors hover:bg-primary/90 active:bg-primary cursor-pointer"
             >
                 {visible ? "Close" : "Add Task"}<FiPlus
