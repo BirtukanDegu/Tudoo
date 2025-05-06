@@ -6,7 +6,7 @@ import { FiPlus } from 'react-icons/fi';
 const Form = ({ setTodos }: { setTodos: Dispatch<SetStateAction<TODO[]>> }) => {
     const [visible, setVisible] = useState(false);
     
-    const [time, setTime] = useState(15);
+    const [time, setTime] = useState("15");
     const [text, setText] = useState("");
     const [unit, setUnit] = useState<"mins" | "hrs">("mins");
     
@@ -20,12 +20,12 @@ const Form = ({ setTodos }: { setTodos: Dispatch<SetStateAction<TODO[]>> }) => {
             id: Math.random(),
             text,
             checked: false,
-            time: `${time} ${unit}`,
+            time: `${parseInt(time)} ${unit}`,
         },
         ...pv,
         ]);
     
-        setTime(15);
+        setTime("15");
         setText("");
         setUnit("mins");
     };
@@ -45,40 +45,51 @@ const Form = ({ setTodos }: { setTodos: Dispatch<SetStateAction<TODO[]>> }) => {
                     className="mb-6 w-full rounded border border-primary/20 bg-amber-50 p-3"
                 >
                     <textarea
-                    value={text}
-                    onChange={(e) => setText(e.target.value)}
-                    placeholder="What do you need to do?"
-                    className="h-24 w-full resize-none rounded bg-black/5 p-3 text-sm text-slate-950 placeholder-slate-500 caret-primary focus:outline-0"
+                        value={text}
+                        onChange={(e) => setText(e.target.value)}
+                        placeholder="What do you need to do?"
+                        className="h-24 w-full resize-none rounded bg-black/5 p-3 text-sm text-slate-950 placeholder-slate-500 caret-primary focus:outline-0"
                     />
                     <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-1.5">
-                        <input
-                        type="number"
-                        className="w-24 rounded border border-primary/20 px-1.5 py-1 text-sm text-slate-950 focus:outline-0"
-                        value={time}
-                        onChange={(e) => setTime(parseInt(e.target.value))}
-                        />
+                        <div className="flex items-center gap-1.5">
+                            <input
+                                type="text"
+                                pattern="[0-9]*"
+                                className="w-24 rounded border border-primary/20 px-1.5 py-1 text-sm text-slate-950 focus:outline-0"
+                                value={time}
+                                onChange={(e) => 
+                                    {
+                                        const inputValue = e.target.value;
+                                        if (
+                                            /^-?\d*\.?\d*$/.test(inputValue) ||
+                                            inputValue === ""
+                                          ){
+                                            setTime(inputValue)
+                                          }
+                                    }
+                                }
+                            />
+                            <button
+                                type="button"
+                                onClick={() => setUnit("mins")}
+                                className={`rounded px-1.5 py-1 text-xs ${unit === "mins" ? "bg-primary/70 text-zinc-800" : "bg-primary/10 text-zinc-950 transition-colors hover:bg-primary/70 hover:text-zinc-800 cursor-pointer"}`}
+                                >
+                                mins
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => setUnit("hrs")}
+                                className={`rounded px-1.5 py-1 text-xs ${unit === "hrs" ? "bg-primary/70 text-zinc-800" : "bg-primary/10 text-zinc-950 transition-colors hover:bg-primary/70 hover:text-zinc-800 cursor-pointer"}`}
+                                >
+                                hrs
+                            </button>
+                        </div>
                         <button
-                        type="button"
-                        onClick={() => setUnit("mins")}
-                        className={`rounded px-1.5 py-1 text-xs ${unit === "mins" ? "bg-primary/70 text-zinc-800" : "bg-primary/10 text-zinc-950 transition-colors hover:bg-primary/70 hover:text-zinc-800 cursor-pointer"}`}
+                            type="submit"
+                            className="rounded bg-primary px-1.5 py-1 text-xs text-white transition-colors hover:bg-primary/90 cursor-pointer"
                         >
-                        mins
+                            Submit
                         </button>
-                        <button
-                        type="button"
-                        onClick={() => setUnit("hrs")}
-                        className={`rounded px-1.5 py-1 text-xs ${unit === "hrs" ? "bg-primary/70 text-zinc-800" : "bg-primary/10 text-zinc-950 transition-colors hover:bg-primary/70 hover:text-zinc-800 cursor-pointer"}`}
-                        >
-                        hrs
-                        </button>
-                    </div>
-                    <button
-                        type="submit"
-                        className="rounded bg-primary px-1.5 py-1 text-xs text-white transition-colors hover:bg-primary/90 cursor-pointer"
-                    >
-                        Submit
-                    </button>
                     </div>
                 </motion.form>
                 )}
