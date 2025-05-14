@@ -63,7 +63,7 @@ const Todo = ({
       <motion.div
         ref={scope}
         layout
-        className="relative flex w-full items-center gap-3 rounded border border-slate-200 bg-white p-3"
+        className="relative flex w-full items-center gap-3 rounded border border-slate-200 dark:border-[#33322C] bg-white dark:bg-[#151515] p-3"
       >
         <input
           type="checkbox"
@@ -76,12 +76,12 @@ const Todo = ({
         />
   
         <p
-          className={`text-slate-950 transition-colors ${checked && "text-amber-400 line-through"}`}
+          className={`text-slate-950 dark:text-brand-cream transition-colors ${checked && "text-amber-400 line-through"}`}
         >
           {children}
         </p>
         <div className="ml-auto flex gap-1.5">
-          <div className="flex items-center gap-1.5 whitespace-nowrap rounded bg-primary/10 px-1.5 py-1 text-xs text-slate-950">
+          <div className="flex items-center gap-1.5 whitespace-nowrap rounded bg-primary/10 dark:bg-primary/50 px-1.5 py-1 text-xs text-slate-950 dark:text-brand-cream">
             <FiClock />
             <span>{time}</span>
           </div>

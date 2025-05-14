@@ -38,7 +38,7 @@ const VanishList = () => {
 
   return (
     <section
-      className="relative min-h-screen py-8 md:py-12 w-[595px] bg-white rounded-2xl border border-dashed border-gray-300 justify-center items-center"
+      className="relative min-h-screen py-8 md:py-12 w-[595px] bg-white dark:bg-[#0a0a0a] rounded-2xl border border-dashed border-gray-300 dark:border-[#33322C] justify-center items-center"
     >
       <div className="mx-auto w-full max-w-xl px-4">
         <div className="flex md:hidden max-w-lg md:min-h-screen w-full h-full p-4 md:p-12 mr-12">

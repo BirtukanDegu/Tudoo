@@ -46,7 +46,7 @@ const Form = ({ setTodos }: { setTodos: Dispatch<SetStateAction<TODO[]>> }) => {
                     e.preventDefault();
                     handleSubmit();
                     }}
-                    className="mb-6 w-full rounded border border-primary/20 bg-amber-50 p-3"
+                    className="mb-6 w-full rounded border border-primary/20 dark:border-[#33322C] bg-amber-50 dark:bg-[#151515] p-3"
                 >
                     <textarea
                         value={text}
@@ -55,14 +55,14 @@ const Form = ({ setTodos }: { setTodos: Dispatch<SetStateAction<TODO[]>> }) => {
                             setText(e.target.value)
                         }}
                         placeholder="What do you need to do?"
-                        className="h-24 w-full resize-none rounded bg-black/5 p-3 text-sm text-slate-950 placeholder-slate-500 caret-primary focus:outline-0"
+                        className="h-24 w-full resize-none rounded bg-black/5 dark:bg-[#0d0d0d] p-3 text-sm text-slate-950 dark:text-brand-cream placeholder-slate-500 caret-primary focus:outline-0"
                     />
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-1.5">
                             <input
                                 type="text"
                                 pattern="[0-9]*"
-                                className="w-24 rounded border border-primary/20 px-1.5 py-1 text-sm text-slate-950 focus:outline-0"
+                                className="w-24 rounded border border-primary/20 px-1.5 py-1 text-sm text-slate-950 dark:text-brand-cream focus:outline-0"
                                 value={time}
                                 onChange={(e) => 
                                     {
@@ -80,14 +80,14 @@ const Form = ({ setTodos }: { setTodos: Dispatch<SetStateAction<TODO[]>> }) => {
                             <button
                                 type="button"
                                 onClick={() => setUnit("mins")}
-                                className={`rounded px-1.5 py-1 text-xs ${unit === "mins" ? "bg-primary/70 text-zinc-800" : "bg-primary/10 text-zinc-950 transition-colors hover:bg-primary/70 hover:text-zinc-800 cursor-pointer"}`}
+                                className={`rounded px-1.5 py-1 text-xs ${unit === "mins" ? "bg-primary/70 text-zinc-800 dark:text-brand-cream" : "bg-primary/10 dark:bg-primary/20 text-zinc-950 dark:text-brand-cream transition-colors hover:bg-primary/70 hover:text-zinc-800 cursor-pointer"}`}
                                 >
                                 mins
                             </button>
                             <button
                                 type="button"
                                 onClick={() => setUnit("hrs")}
-                                className={`rounded px-1.5 py-1 text-xs ${unit === "hrs" ? "bg-primary/70 text-zinc-800" : "bg-primary/10 text-zinc-950 transition-colors hover:bg-primary/70 hover:text-zinc-800 cursor-pointer"}`}
+                                className={`rounded px-1.5 py-1 text-xs ${unit === "hrs" ? "bg-primary/70 text-zinc-800 dark:text-brand-cream" : "bg-primary/10 dark:bg-primary/20 text-zinc-950 dark:text-brand-cream transition-colors hover:bg-primary/70 hover:text-zinc-800 cursor-pointer"}`}
                                 >
                                 hrs
                             </button>
