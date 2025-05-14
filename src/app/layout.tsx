@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { marcellus } from "@/fonts/font";
 import "./globals.css";
+import CustomProvider from "@/context/provider";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export const viewport: Viewport = {
   themeColor: "#f97316",
@@ -71,9 +73,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${marcellus.className} antialiased scrollbar`}
+        className={`${marcellus.className} antialiased scrollbar relative`}
       >
-        {children}
+        <CustomProvider>
+          <div className="absolute top-12 right-12 z-50">
+            <ThemeToggle />
+          </div>
+          {children}
+        </CustomProvider>
       </body>
     </html>
   );
