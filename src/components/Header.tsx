@@ -3,6 +3,7 @@
 import { useTheme } from "@/context/themeContext";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { ThemeToggle } from "./ThemeToggle";
 
 const Header = () => {
     const { theme } = useTheme();
@@ -17,7 +18,7 @@ const Header = () => {
     }
 
     return (
-     <div className="flex flex-col justify-between w-full h-full">
+     <div className="flex justify-between w-full h-full">
         <div className="flex gap-4 items-center">
           <Image
             src={
@@ -31,14 +32,11 @@ const Header = () => {
             alt="logo"
           />
           <div>
-            <p className="font-semibold dark:text-brand-cream">TudOOOOOO</p>
-            <p className="text-orange-500 text-sm">By Birtukan</p>
+            <p className="font-semibold dark:text-brand-cream">Good morning! ☀️</p>
+            <p className="text-zinc-400 text-sm">Let&apos;s see what you&apos;ve got to do today.</p>
           </div>
         </div>
-        <div className="mb-6">
-            <h1 className="text-xl font-medium text-black dark:text-brand-cream">Good morning! ☀️</h1>
-            <p className="text-zinc-400">Let&apos;s see what you&apos;ve got to do today.</p>
-        </div>
+        <ThemeToggle />
       </div>
     );
   };
