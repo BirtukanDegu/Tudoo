@@ -55,7 +55,7 @@ const Form = ({ setTodos }: { setTodos: Dispatch<SetStateAction<TODO[]>> }) => {
                             setText(e.target.value)
                         }}
                         placeholder="What do you need to do?"
-                        className="h-24 w-full resize-none rounded bg-black/5 dark:bg-[#0d0d0d] p-3 text-sm text-slate-950 dark:text-brand-cream placeholder-slate-500 caret-primary focus:outline-0"
+                        className="h-24 w-full resize-none rounded bg-black/5 dark:bg-[#0d0d0d] p-3 text-sm text-slate-950 dark:text-brand-cream placeholder-slate-500 caret-primary focus:outline-0 scrollbar"
                     />
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-1.5">
